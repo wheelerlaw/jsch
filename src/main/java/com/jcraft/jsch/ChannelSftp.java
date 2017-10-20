@@ -236,13 +236,6 @@ public class ChannelSftp extends ChannelSession {
             Request request = new RequestSftp();
             request.request(getSession(), this);
 
-      /*
-      System.err.println("lmpsize: "+lmpsize);
-      System.err.println("lwsize: "+lwsize);
-      System.err.println("rmpsize: "+rmpsize);
-      System.err.println("rwsize: "+rwsize);
-      */
-
             buf = new Buffer(lmpsize);
             packet = new Packet(buf);
 
@@ -293,14 +286,7 @@ public class ChannelSftp extends ChannelSession {
                     extensions.get("statvfs@openssh.com").equals("2")) {
                 extension_statvfs = true;
             }
-
-      /*
-      if(extensions.get("fstatvfs@openssh.com")!=null &&
-         extensions.get("fstatvfs@openssh.com").equals("2")){
-        extension_fstatvfs = true;
-      }
-      */
-
+            
             if (extensions.get("hardlink@openssh.com") != null &&
                     extensions.get("hardlink@openssh.com").equals("1")) {
                 extension_hardlink = true;
